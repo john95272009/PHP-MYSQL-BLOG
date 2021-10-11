@@ -285,7 +285,7 @@ function get_all_article()
   else {
     echo "錯誤".mysqli_error($_SESSION['link']);
   }
-  return $article;
+  return $article ?? [];
 }
 function get_all_works()
 {
@@ -293,7 +293,7 @@ function get_all_works()
   $ariticle=array();
 
   $sql="select * from `works`";
-  $result = mysqli_query($_SESSION['link'],$sql);
+  $result = mysqli_query($_SESSION['link'], $sql);
   if ($result)
   {
     //執行成功
@@ -308,7 +308,6 @@ function get_all_works()
  
   }
   else {
-
     echo "錯誤".mysqli_error($_SESSION['link']);
   }
   if(!empty($article))
